@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import './style.css';
+import './style.scss';
 import './index.css';
 import { PLUGIN_IMPORTS } from '../pages/plugins';
 import { usePages } from '../composables/usePages';
@@ -16,4 +16,5 @@ for (let key of Object.keys(PLUGIN_IMPORTS)) {
 
 app.component('Draggable', DraggableVue);
 app.mount('#app');
+
 init();

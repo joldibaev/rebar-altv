@@ -1,0 +1,7 @@
+.btn {
+  @apply rounded-lg px-6 py-2;
+
+  &.btn-primary {
+    @apply bg-primary text-dark-2;
+  }
+}
