@@ -449,6 +449,16 @@ const rebarPlayer = Rebar.usePlayer(player);
 rebarPlayer.world.enableControls();
 rebarPlayer.world.disableControls();
 
+// Disable Camera Controls (still allows walking)
+rebarPlayer.world.disableCameraControls(true);
+
+// Disable Attacking (still allows walking)
+rebarPlayer.world.disableAttackControls(true);
+
+// Freeze gameplay camera, will freeze the gameplay camera in its last known place
+// It's almost like dropping a camera on the ground
+rebarPlayer.world.freezeCamera(true);
+
 // Blur the screen over 5 seconds, and keep it blurred
 rebarPlayer.world.setScreenBlur(5000);
 rebarPlayer.world.clearScreenBlur(5000);
@@ -470,4 +480,8 @@ rebarPlayer.world.setTimecycle('stoned', 5000);
 
 // Change the weather to Thunder over 5 seconds
 rebarPlayer.world.setWeather('THUNDER', 5);
+
+// Show a preview pedestrian on screen
+rebarPlayer.world.showPedOnScreen('right');
+rebarPlayer.world.hidePedOnScreen();
 ```

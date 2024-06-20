@@ -22,6 +22,7 @@ import {
     useCharacter,
     useCharacterBinder,
     useGlobal,
+    useIncrementalId,
     useVehicleBinder,
     useVehicle as useVehicleDocument,
     useVehicleEvents,
@@ -69,6 +70,9 @@ import { useKeybinder } from './systems/serverKeybinds.js';
 import { useProgressbarGlobal, useProgressbarLocal } from './controllers/progressbar.js';
 import { useWorldMenu } from './controllers/worldMenu.js';
 
+import * as ClothingUtility from '@Shared/data/clothing.js';
+import { useScreenshot } from './systems/screenshot.js';
+
 export function useRebar() {
     return {
         useApi,
@@ -91,6 +95,7 @@ export function useRebar() {
         },
         database: {
             useDatabase,
+            useIncrementalId,
             CollectionNames,
         },
         document: {
@@ -133,6 +138,7 @@ export function useRebar() {
             useNative,
             useNotify,
             usePlayerAppearance,
+            useScreenshot,
             useState,
             useStatus,
             useWaypoint,
@@ -154,6 +160,7 @@ export function useRebar() {
         useServerTime,
         useServerWeather,
         utility: {
+            clothing: { ...ClothingUtility },
             sha256,
             sha256Random,
             password: {
