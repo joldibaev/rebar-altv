@@ -7,12 +7,6 @@ import { AuthConfig } from '../../shared/auth.config.js';
 const Rebar = useRebarClient();
 
 let camera: number;
-let interval: number;
-
-function rotateCamera() {
-    const camRot = native.getCamRot(camera, 2);
-    native.setCamRot(camera, camRot.x, camRot.y, camRot.z + 0.025, 2);
-}
 
 function createCamera() {
     if (typeof camera !== 'undefined') {
@@ -22,21 +16,9 @@ function createCamera() {
     const { x, y, z } = AuthConfig.initial.pos;
     const { x: rx, y: ry, z: rz } = AuthConfig.initial.rot;
 
-    interval = alt.setInterval(rotateCamera, 0);
-    camera = native.createCamWithParams(
-        'DEFAULT_SCRIPTED_CAMERA',
-        x,
-        y,
-        z + 0.2,
-        rx,
-        ry,
-        rz,
-        55,
-        false,
-        1
-    );
+    camera = native.createCamWithParams('DEFAULT_SCRIPTED_CAMERA', x, y, z, rx, ry, rz, 55, false, 1);
 
-    native.setCamFov(camera, 80);
+    // native.setCamFov(camera, 80);
     native.setCamActive(camera, true);
     native.renderScriptCams(true, false, 1000, false, false, 0);
     native.displayRadar(false);
@@ -53,8 +35,6 @@ function destroyCamera() {
     native.renderScriptCams(false, false, 0, false, false, 0);
     native.displayRadar(true);
     alt.toggleGameControls(true);
-    alt.clearInterval(interval);
-    interval = undefined;
 }
 
 function openAuth() {

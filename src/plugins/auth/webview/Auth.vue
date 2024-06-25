@@ -35,8 +35,7 @@ const state = ref<'login' | 'register'>('login');
     background-image: linear-gradient(
         90deg,
         rgba(var(--color-dark-3-rgb), 1),
-        rgba(var(--color-dark-3-rgb), 0.9),
-        rgba(var(--color-dark-3-rgb), 0.6),
+        rgba(var(--color-dark-3-rgb), 0.4),
         rgba(var(--color-dark-3-rgb), 0.1)
     );
 
