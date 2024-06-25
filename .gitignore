@@ -4,6 +4,7 @@ cache/
 modules/
 node_modules/
 resources/main/
+resources/mods/
 resources/core/
 resources/webview/
 resources/sounds/**/*.ogg
@@ -45,6 +46,11 @@ lerna-debug.log*
 dist
 dist-ssr
 *.local
+
+# server
+altv-server
+altv-crash-handler
+libnode.so.108
 
 # Editor directories and files
 .vscode/*
