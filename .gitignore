@@ -46,6 +46,11 @@ dist
 dist-ssr
 *.local
 
+# server
+altv-server
+altv-crash-handler
+libnode.so.108
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
