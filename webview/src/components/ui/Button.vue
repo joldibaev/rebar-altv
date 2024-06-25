@@ -26,7 +26,12 @@ button {
         border 0.2s ease,
         background-color 0.2s ease,
         color 0.2s ease,
-        box-shadow 0.2s ease;
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+
+    &:active {
+        transform: scale(0.99);
+    }
 
     &.active {
         @apply bg-primary text-dark-2 outline-2;

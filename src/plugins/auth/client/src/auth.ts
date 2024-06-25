@@ -7,6 +7,7 @@ import { AuthConfig } from '../../shared/auth.config.js';
 const Rebar = useRebarClient();
 
 let camera: number;
+let nextTickInterval: number | undefined;
 
 function createCamera() {
     if (typeof camera !== 'undefined') {
@@ -23,6 +24,14 @@ function createCamera() {
     native.renderScriptCams(true, false, 1000, false, false, 0);
     native.displayRadar(false);
     alt.toggleGameControls(false);
+
+    native.triggerScreenblurFadeIn(0);
+    nextTickInterval = alt.setTimeout(() => {
+        native.triggerScreenblurFadeOut(1500);
+
+        alt.clearTimeout(nextTickInterval);
+        nextTickInterval = undefined;
+    }, 1000);
 }
 
 function destroyCamera() {
@@ -46,4 +55,6 @@ alt.onServer(AuthEvents.toClient.cameraCreate, () => {
     createCamera();
     openAuth();
 });
-alt.onServer(AuthEvents.toClient.cameraDestroy, destroyCamera);
+alt.onServer(AuthEvents.toClient.cameraDestroy, () => {
+    destroyCamera();
+});

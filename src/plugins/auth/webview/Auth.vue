@@ -1,8 +1,28 @@
 <script lang="ts" setup>
+import '../translate/index'; // Import translations
+
 import Title from '../../../../webview/src/components/ui/Title.vue';
 import Button from '../../../../webview/src/components/ui/Button.vue';
 import { ref } from 'vue';
-import Input from '../../../../webview/src/components/ui/Input.vue';
+import AuthLogin from '@Plugins/auth/webview/components/AuthLogin.vue';
+import AuthRegister from '@Plugins/auth/webview/components/AuthRegister.vue';
+import { useTranslate } from '@Shared/translate.js';
+
+const { t } = useTranslate('ru');
+
+const formData = ref({
+    email: '',
+    password: '',
+    confirmPassword: '',
+    rememberMe: false,
+});
+const submitted = ref(false);
+
+const onSubmit = () => {
+    submitted.value = true;
+    // Handle form submission, e.g., send data to an API
+    console.log('Form Data:', formData.value);
+};
 
 const state = ref<'login' | 'register'>('login');
 </script>
@@ -13,19 +33,14 @@ const state = ref<'login' | 'register'>('login');
             <Title class="mb-5 text-center text-8xl" type="outlined">Verona</Title>
 
             <div class="flex justify-center gap-3">
-                <Button :active="state === 'login'" @click="state = 'login'">Авторизация</Button>
-                <Button :active="state === 'register'" @click="state = 'register'">Регистрация</Button>
+                <Button :active="state === 'login'" @click="state = 'login'">{{ t('auth.span.login') }}</Button>
+                <Button :active="state === 'register'" @click="state = 'register'"
+                    >{{ t('auth.span.register') }}
+                </Button>
             </div>
 
-            <form class="py-12">
-                <Input class="mb-5" type="text" placeholder="Электронная почта"></Input>
-
-                <Input class="mb-5" type="password" placeholder="Пароль"></Input>
-
-                <Input class="mb-5" type="checkbox">Запомнить меня</Input>
-
-                <Button type="submit" style-type="primary" class="w-full">Авторизоваться</Button>
-            </form>
+            <AuthLogin v-if="state === 'login'"></AuthLogin>
+            <AuthRegister v-else></AuthRegister>
         </div>
     </div>
 </template>

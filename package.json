@@ -28,6 +28,7 @@
         "nodemon": "^3.1.4",
         "postcss": "^8.4.38",
         "prettier": "^3.3.2",
+        "prettier-plugin-organize-attributes": "^1.0.0",
         "prettier-plugin-tailwindcss": "^0.5.14",
         "retypeapp": "^3.5.0",
         "sass": "^1.77.6",
@@ -52,7 +53,8 @@
         "semi": true,
         "printWidth": 120,
         "plugins": [
-            "prettier-plugin-tailwindcss"
+            "prettier-plugin-tailwindcss",
+            "prettier-plugin-organize-attributes"
         ]
     },
     "nodemonConfig": {
