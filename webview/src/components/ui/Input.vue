@@ -8,7 +8,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
     type: 'text',
-    placeholder: ''
+    placeholder: '',
 });
 
 const classForCheckbox = computed(() => {
@@ -20,8 +20,8 @@ const classForCheckbox = computed(() => {
 
 <template>
     <label class="flex items-center">
-        <input :class="classForCheckbox" :type="type" :placeholder="placeholder">
-        <span v-if="type === 'checkbox'" class="w-full ms-2"><slot></slot></span>
+        <input :class="classForCheckbox" :type="type" :placeholder="placeholder" />
+        <span v-if="type === 'checkbox'" class="ms-2 w-full"><slot></slot></span>
     </label>
 </template>
 
@@ -31,6 +31,16 @@ label {
 }
 
 input {
-    @apply bg-dark-1 border-2 border-dark-2 focus:border-primary p-3 outline-0 rounded-lg text-muted flex-auto;
+    @apply bg-dark-1 border-dark-2 focus:border-primary text-muted flex-auto border-2 p-3 outline-0;
+
+    transition:
+        border 0.2s ease,
+        background-color 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+
+    &:focus {
+        box-shadow: 0 0 25px rgba(var(--color-primary-rgb), 0.15);
+    }
 }
 </style>

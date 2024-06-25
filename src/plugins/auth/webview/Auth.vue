@@ -10,7 +10,7 @@ const state = ref<'login' | 'register'>('login');
 <template>
     <div class="wrapper">
         <div class="auth">
-            <Title class="text-8xl text-center mb-5" type="outlined">Verona</Title>
+            <Title class="mb-5 text-center text-8xl" type="outlined">Verona</Title>
 
             <div class="flex justify-center gap-3">
                 <Button :active="state === 'login'" @click="state = 'login'">Авторизация</Button>
@@ -32,9 +32,15 @@ const state = ref<'login' | 'register'>('login');
 
 <style scoped>
 .wrapper {
-    background-image: linear-gradient(90deg, rgba(var(--color-dark-3-rgb), 1), rgba(var(--color-dark-3-rgb), .9), rgba(var(--color-dark-3-rgb), .6), rgba(var(--color-dark-3-rgb), .1));
+    background-image: linear-gradient(
+        90deg,
+        rgba(var(--color-dark-3-rgb), 1),
+        rgba(var(--color-dark-3-rgb), 0.9),
+        rgba(var(--color-dark-3-rgb), 0.6),
+        rgba(var(--color-dark-3-rgb), 0.1)
+    );
 
-    @apply w-screen h-screen ps-96 flex items-center z-0 text-white;
+    @apply z-0 flex h-screen w-screen items-center ps-96 text-white;
 }
 
 .auth {

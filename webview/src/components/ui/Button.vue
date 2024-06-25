@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-
 interface Props {
     styleType: 'primary' | 'secondary' | 'standard';
     type: HTMLButtonElement['type'];
@@ -9,9 +8,8 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
     styleType: 'standard',
     type: 'button',
-    active: false
+    active: false,
 });
-
 </script>
 
 <template>
@@ -22,14 +20,23 @@ const props = withDefaults(defineProps<Props>(), {
 
 <style scoped lang="scss">
 button {
-    @apply rounded-lg px-6 py-2 font-bold;
+    @apply border border-transparent px-6 py-2 font-bold;
+
+    transition:
+        border 0.2s ease,
+        background-color 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
 
     &.active {
-        @apply bg-primary outline-2 text-dark-2;
+        @apply bg-primary text-dark-2 outline-2;
     }
 
-    &.primary {
-        @apply bg-primary border text-dark-2;
+    &.primary,
+    &.active {
+        @apply bg-primary text-dark-2 border-primary;
+
+        box-shadow: 0 0 25px rgba(var(--color-primary-rgb), 0.25);
     }
 }
 </style>
