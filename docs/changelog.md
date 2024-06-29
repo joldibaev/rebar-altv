@@ -1,5 +1,39 @@
 # Changelog
 
+## Version 41
+
+### Code Changes
+
+-   Added `useStreamSyncedBinder` to automatically synchronize document data from server to client for vehicles and characters
+-   Added `useSyncedMeta` composable to the webview, to get data synced from `useStreamSyncedBinder`
+-   Added `useStreamSyncedGetter` to client-side to get type safe responses for stream synced meta data
+
+### Docs Changes
+
+-   Documented `useStreamSyncedBinder`, `useSyncedMeta`, and `useStreamSyncedGetter`
+
+---
+
+## Version 40
+
+### Code Changes
+
+-   Added new dlc clothing maximums for 2024 DLC
+-   Added `keypress` api that lets you bind functions to keyup/keydown from server-side
+-   Added `setRpm` to vehicle API
+-   Added new `fonts` resource, which may need to be imported in your `server.toml`; for custom fonts
+-   Lower distance for all Text Labels; max distance now capped at 20
+-   Failing readiness check on an API will now return the failing API's name
+-   Added `D2D` text labels with global and local support
+
+### Docs Changes
+
+-   Documented keypress
+-   Documented keypress in vehicle api
+-   Documented fonts folder
+
+---
+
 ## Version 39
 
 ### Code Changes
