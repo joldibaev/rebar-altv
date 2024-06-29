@@ -6,28 +6,37 @@ import { ref } from 'vue';
 import AuthLogin from '@Plugins/auth/webview/components/AuthLogin.vue';
 import AuthRegister from '@Plugins/auth/webview/components/AuthRegister.vue';
 import { useTranslate } from '@Shared/translate.js';
+import RememberAuth from '@Plugins/auth/webview/components/RememberAuth.vue';
 
 const { t } = useTranslate('ru');
 
-const state = ref<'login' | 'register'>('login');
+const state = ref<'login' | 'remember-me' | 'register'>('login');
 </script>
 
 <template>
-    <div class="wrapper">
+    <section class="wrapper">
         <div class="auth">
             <Title class="mb-5 text-center text-8xl" type="outlined">Verona</Title>
 
-            <div class="flex justify-center gap-3">
-                <Button :active="state === 'login'" @click="state = 'login'">{{ t('auth.span.login') }}</Button>
-                <Button :active="state === 'register'" @click="state = 'register'"
-                    >{{ t('auth.span.register') }}
-                </Button>
-            </div>
+            <RememberAuth
+                v-show="state === 'remember-me'"
+                @loaded="state = 'remember-me'"
+                @exit="state = 'login'"
+            ></RememberAuth>
 
-            <AuthLogin v-if="state === 'login'"></AuthLogin>
-            <AuthRegister v-else></AuthRegister>
+            <template v-if="state !== 'remember-me'">
+                <div class="flex justify-center gap-3">
+                    <Button :active="state === 'login'" @click="state = 'login'">{{ t('auth.span.login') }}</Button>
+                    <Button :active="state === 'register'" @click="state = 'register'"
+                        >{{ t('auth.span.register') }}
+                    </Button>
+                </div>
+
+                <AuthLogin v-if="state === 'login'"></AuthLogin>
+                <AuthRegister v-else></AuthRegister>
+            </template>
         </div>
-    </div>
+    </section>
 </template>
 
 <style scoped>

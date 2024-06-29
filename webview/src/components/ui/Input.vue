@@ -1,19 +1,24 @@
 <script lang="ts" setup>
-import { defineProps, ref } from 'vue';
+import { ref } from 'vue';
 
 const model = defineModel();
 
 const inputRef = ref<HTMLInputElement | null>(null);
 
+interface Invalid {
+    value: boolean;
+    message?: string;
+}
+
 interface Props {
     type: HTMLInputElement['type'];
-    invalid: { value: boolean; message?: string };
+    invalid: Invalid;
     placeholder: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
     type: 'text',
-    invalid: { value: false },
+    invalid: { value: false, message: '' },
     placeholder: '',
 });
 
@@ -27,12 +32,11 @@ defineExpose({
 </script>
 
 <template>
-    <div>
+    <section>
         <label class="flex items-center">
             <input
                 v-model="model"
                 ref="inputRef"
-                :value="modelValue"
                 :class="{ 'accent-primary': type === 'checkbox', invalid: invalid.value }"
                 :type="type"
                 :placeholder="placeholder"
@@ -41,7 +45,7 @@ defineExpose({
         </label>
 
         <div class="text-danger" v-if="invalid.value && invalid.message">{{ invalid.message }}</div>
-    </div>
+    </section>
 </template>
 
 <style scoped lang="scss">

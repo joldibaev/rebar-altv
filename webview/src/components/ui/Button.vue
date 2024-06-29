@@ -35,24 +35,36 @@ button {
         transform: scale(0.99);
     }
 
-    &.active {
+    &.primary {
         @apply bg-primary text-dark-2 outline-2;
-    }
-
-    &.primary,
-    &.active {
-        @apply bg-primary text-dark-2 border-primary;
-
         box-shadow: 0 0 25px rgba(var(--color-primary-rgb), 0.25);
 
         &:disabled {
             @apply bg-muted border-muted;
-            box-shadow: none;
+        }
+    }
+
+    &.secondary {
+        @apply bg-secondary text-dark-2 outline-2;
+        box-shadow: 0 0 25px rgba(var(--color-secondary-rgb), 0.25);
+
+        &:disabled {
+            @apply bg-muted border-muted;
+        }
+    }
+
+    &.active {
+        @apply bg-primary text-dark-2 outline-2;
+        box-shadow: 0 0 25px rgba(var(--color-primary-rgb), 0.25);
+
+        &:disabled {
+            @apply bg-muted border-muted;
         }
     }
 
     &:disabled {
         @apply cursor-not-allowed;
+        box-shadow: none;
     }
 }
 </style>

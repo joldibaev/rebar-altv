@@ -1,23 +1,22 @@
-<script lang="ts" setup>
-</script>
+<script lang="ts" setup></script>
 
 <template>
-    <div class="wrapper">
+    <section class="wrapper">
         <div class="card">
             <slot></slot>
         </div>
-    </div>
+    </section>
 </template>
 
 <style scoped>
 .wrapper {
-    @apply flex items-center justify-center w-screen h-screen overflow-hidden;
+    @apply flex h-screen w-screen items-center justify-center overflow-hidden;
 }
 
 .card {
     position: relative;
 
-    @apply bg-dark-3 text-white p-12 rounded-lg shadow-lg max-w-screen-md overflow-hidden;
+    @apply bg-dark-3 max-w-screen-md overflow-hidden rounded-lg p-12 text-white shadow-lg;
 
     &::before {
         content: '';
@@ -26,7 +25,6 @@
         top: -25%;
         left: 50%;
         transform: translateX(-50%);
-
 
         width: 50%;
         height: 100px;

@@ -46,15 +46,5 @@ function destroyCamera() {
     alt.toggleGameControls(true);
 }
 
-function openAuth() {
-    const webview = Rebar.webview.useWebview();
-    webview.show('Auth', 'page');
-}
-
-alt.onServer(AuthEvents.toClient.cameraCreate, () => {
-    createCamera();
-    openAuth();
-});
-alt.onServer(AuthEvents.toClient.cameraDestroy, () => {
-    destroyCamera();
-});
+alt.onServer(AuthEvents.toClient.cameraCreate, createCamera);
+alt.onServer(AuthEvents.toClient.cameraDestroy, destroyCamera);

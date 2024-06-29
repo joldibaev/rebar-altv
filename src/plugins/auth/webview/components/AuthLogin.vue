@@ -35,9 +35,7 @@ const onSubmit = (event: Event) => {
 
 function handleInvalidCredentials() {
     submitted.value = false;
-
     invalidCredentials.value = true;
-    formData.password = '';
 
     nextTick(() => {
         alertRef.value?.triggerShake();
@@ -73,7 +71,7 @@ onMounted(init);
             :placeholder="t('auth.span.password')"
         ></Input>
 
-        <Input class="mb-5" :checked="formData.rememberMe" type="checkbox">{{ t('auth.span.remember') }}</Input>
+        <Input class="mb-5" v-model="formData.rememberMe" type="checkbox">{{ t('auth.span.remember') }}</Input>
 
         <Button class="w-full" type="submit" style-type="primary">{{ t('auth.span.login') }}</Button>
     </form>
