@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import '../translate/index'; // Import translations
-
 import Title from '../../../../webview/src/components/ui/Title.vue';
 import Button from '../../../../webview/src/components/ui/Button.vue';
 import { ref } from 'vue';
@@ -9,20 +8,6 @@ import AuthRegister from '@Plugins/auth/webview/components/AuthRegister.vue';
 import { useTranslate } from '@Shared/translate.js';
 
 const { t } = useTranslate('ru');
-
-const formData = ref({
-    email: '',
-    password: '',
-    confirmPassword: '',
-    rememberMe: false,
-});
-const submitted = ref(false);
-
-const onSubmit = () => {
-    submitted.value = true;
-    // Handle form submission, e.g., send data to an API
-    console.log('Form Data:', formData.value);
-};
 
 const state = ref<'login' | 'register'>('login');
 </script>

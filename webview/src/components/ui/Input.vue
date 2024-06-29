@@ -1,38 +1,47 @@
 <script lang="ts" setup>
-import { computed, defineProps } from 'vue';
+import { defineProps, ref } from 'vue';
+
+const model = defineModel();
+
+const inputRef = ref<HTMLInputElement | null>(null);
 
 interface Props {
     type: HTMLInputElement['type'];
+    invalid: { value: boolean; message?: string };
     placeholder: string;
-    modelValue: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
     type: 'text',
+    invalid: { value: false },
     placeholder: '',
-    modelValue: '',
 });
 
-const emit = defineEmits<{
-    (event: 'update:modelValue', value: string): void;
-}>();
-
-const onInput = (event: Event) => {
-    emit('update:modelValue', (event.target as HTMLInputElement).value);
+const focus = () => {
+    inputRef.value?.focus();
 };
 
-const classForCheckbox = computed(() => {
-    if (props.type === 'checkbox') {
-        return ['accent-primary'];
-    }
+defineExpose({
+    focus,
 });
 </script>
 
 <template>
-    <label class="flex items-center">
-        <input :value="modelValue" @input="onInput" :class="classForCheckbox" :type="type" :placeholder="placeholder" />
-        <span class="ms-2 w-full" v-if="type === 'checkbox'"><slot></slot></span>
-    </label>
+    <div>
+        <label class="flex items-center">
+            <input
+                v-model="model"
+                ref="inputRef"
+                :value="modelValue"
+                :class="{ 'accent-primary': type === 'checkbox', invalid: invalid.value }"
+                :type="type"
+                :placeholder="placeholder"
+            />
+            <span class="ms-2 w-full" v-if="type === 'checkbox'"><slot></slot></span>
+        </label>
+
+        <div class="text-danger" v-if="invalid.value && invalid.message">{{ invalid.message }}</div>
+    </div>
 </template>
 
 <style scoped lang="scss">
@@ -56,6 +65,11 @@ input {
 
     &:focus {
         box-shadow: 0 0 25px rgba(var(--color-primary-rgb), 0.15);
+    }
+
+    &.invalid {
+        @apply border-danger;
+        box-shadow: 0 0 25px rgba(var(--color-danger-rgb), 0.15);
     }
 }
 </style>

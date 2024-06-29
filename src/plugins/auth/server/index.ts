@@ -1,3 +1,3 @@
 import '../translate/index.js';
 
-import './src/auth.js';
+import './src/auth/index.js';

@@ -9,7 +9,7 @@ export const AuthEvents = {
         cameraDestroy: 'auth:event:camera:destroy',
     },
     fromServer: {
-        invalidLogin: 'auth:event:invalid:login',
-        invalidRegister: 'auth:event:invalid:register',
+        invalidCredentials: 'auth:event:invalid:login',
+        userAlreadyExists: 'auth:event:invalid:register',
     },
 };

@@ -4,12 +4,16 @@ export default {
     theme: {
         fontFamily: {
             display: 'Jost',
-            sans: 'Roboto'
+            sans: 'Roboto',
         },
         colors: {
             transparent: 'transparent',
             primary: '#45f882',
             secondary: '#ffbe18',
+            danger: '#ED5050',
+            success: '#3FCA90',
+            warning: '#EDCB50',
+            info: '#3F7FCA',
             muted: '#adb0bc',
             dark: {
                 1: '#0f161b',
@@ -20,9 +24,9 @@ export default {
                 6: '#050506',
                 7: '#040608',
                 8: '#0d141b',
-                9: '#111922'
+                9: '#111922',
             },
-            white: '#fff'
+            white: '#fff',
         },
         extend: {
             animation: {
@@ -42,7 +46,7 @@ export default {
         },
     },
     plugins: [
-        function({ addBase, theme }) {
+        function ({ addBase, theme }) {
             // Function to convert hex color to RGB
             const hexToRgb = (hex) => {
                 const bigint = parseInt(hex.replace('#', ''), 16);
@@ -71,8 +75,8 @@ export default {
             }, {});
 
             addBase({
-                ':root': colorVariables
+                ':root': colorVariables,
             });
-        }
-    ]
+        },
+    ],
 };
