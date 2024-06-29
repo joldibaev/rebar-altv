@@ -30,6 +30,10 @@ export const Events = {
             create: 'textlabel:create',
             destroy: 'textlabel:destroy',
         },
+        dxgilabel: {
+            create: 'dxgilabel:create',
+            destroy: 'dxgilabel:destroy',
+        },
     },
     events: {
         clientEvents: {
@@ -98,6 +102,11 @@ export const Events = {
             update: 'systems:keybinds:update',
             invoke: 'systems:keybinds:invoke',
         },
+        keypress: {
+            update: 'systems:keypress:update',
+            invokeUp: 'systems:keypress:invoke:keyup',
+            invokeDown: 'systems:keypress:invoke:keydown',
+        },
         messenger: {
             process: 'systems:messenger:process',
             send: 'systems:messenger:send',
@@ -127,6 +136,11 @@ export const Events = {
             execute: 'systems:transmitter:execute',
         },
     },
+    vehicle: {
+        set: {
+            rpm: 'vehicle:set:rpm',
+        },
+    },
     view: {
         onServer: 'webview:on:server',
         onEmit: 'webview:emit:on',
@@ -149,5 +163,9 @@ export const Events = {
         localStorageDelete: 'webview:localstorage:delete',
         onPageClose: 'webview:page:close',
         onPageOpen: 'webview:page:open',
+        syncCharacter: 'webview:sync:character',
+        syncPartialCharacter: 'webview:sync:partial:character',
+        syncVehicle: 'webview:sync:vehicle',
+        syncPartialVehicle: 'webview:sync:partial:vehicle',
     },
 };
