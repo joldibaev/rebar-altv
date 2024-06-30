@@ -20,7 +20,7 @@ export async function setAccount(player: alt.Player, account: Account) {
 
     invokeOnLogin(player);
 
-    player.spawn(-18.07856, -583.6725, 79.46569);
+    player.spawn(-169.286, 486.4938, 137.4436);
     player.model = 'mp_m_freemode_01';
     player.frozen = false;
     player.visible = true;
