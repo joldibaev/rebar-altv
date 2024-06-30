@@ -1,5 +1,7 @@
 import { useRebar } from '@Server/index.js';
 
+import { ServerConfig } from './config.js';
+
 import './api.js';
 
 const Rebar = useRebar();
@@ -7,13 +9,13 @@ const Rebar = useRebar();
 const serverConfig = Rebar.useServerConfig();
 
 // Hide minimap when a page is opened
-serverConfig.set('hideMinimapInPage', true);
+serverConfig.set('hideMinimapInPage', ServerConfig.hideMinimapInPage);
 
 // Disable pistol whipping entirely
-serverConfig.set('disablePistolWhip', true);
+serverConfig.set('disablePistolWhip', ServerConfig.disablePistolWhip);
 
 // Disable starting vehicle engine when entering vehicle
-serverConfig.set('disableVehicleEngineAutoStart', true);
+serverConfig.set('disableVehicleEngineAutoStart', ServerConfig.disableVehicleEngineAutoStart);
 
 // Disable stopping vehicle engine when leaving a vehicle
-serverConfig.set('disableVehicleEngineAutoStop', true);
+serverConfig.set('disableVehicleEngineAutoStop', ServerConfig.disableVehicleEngineAutoStop);
