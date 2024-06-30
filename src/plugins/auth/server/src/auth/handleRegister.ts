@@ -4,11 +4,11 @@ import { Account } from '@Shared/types/account.js';
 import { useTranslate } from '@Shared/translate.js';
 import { AuthEvents } from '../../../shared/auth.events.js';
 import { setAccount } from './setAccount.js';
-import { AuthLoginProps, AuthRegisterProps } from '@Plugins/auth/shared/auth.interface.js';
+import { AuthRegisterProps } from '@Plugins/auth/shared/auth.interface.js';
 
 const Rebar = useRebar();
 
-const { t } = useTranslate('en');
+const { t } = useTranslate('ru');
 
 const sessionKey = 'can-authenticate';
 const db = Rebar.database.useDatabase();

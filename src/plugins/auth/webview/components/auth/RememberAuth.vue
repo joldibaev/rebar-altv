@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import '../../translate/index.js'; // Import translations
+import '../../../translate/index.js'; // Import translations
 import { useTranslate } from '@Shared/translate.js';
 import { AuthEvents } from '@Plugins/auth/shared/auth.events.js';
 import { computed, onMounted, reactive } from 'vue';
 import { useEvents } from '@Composables/useEvents.js';
-import Button from '../../../../../webview/src/components/ui/Button.vue';
+import Button from '../../../../../../webview/src/components/ui/Button.vue';
 
 import moment from 'moment';
 import 'moment/locale/ru';

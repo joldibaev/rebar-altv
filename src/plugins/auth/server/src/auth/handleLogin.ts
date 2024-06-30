@@ -11,7 +11,7 @@ import { setAccount } from './setAccount.js';
 
 const Rebar = useRebar();
 const db = Rebar.database.useDatabase();
-const { t } = useTranslate('en');
+const { t } = useTranslate('ru');
 
 export async function handleLogin(player: alt.Player, { email, password, rememberMe }: AuthLoginProps) {
     if (!player.getMeta(sessionKey)) {

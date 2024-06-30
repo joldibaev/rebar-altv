@@ -23,3 +23,27 @@ setBulk({
         'auth.kick.alreadyLoggedIn': 'Уже вошел в систему',
     },
 });
+
+setBulk({
+    ru: {
+        'character.select.no.account': 'Аккаунт не найден, перезапустите игру',
+        'character.select.bad.write': 'Не удалось обновить, переподключитесь к серверу',
+        'character.select.bad.character': 'Персонаж не существует, переподключитесь к серверу',
+        'character.select.first.invalid': 'Недопустимое имя',
+        'character.select.last.invalid': 'Недопустимая фамилия',
+        'character.select.invalid.characters': 'Имя содержит недопустимые символы',
+        'character.select.username.taken': 'Имя недоступно',
+        'character.select.character.not.found': 'Персонаж не найден, обновлены персонажи',
+        'character.select.submit': 'Отправить',
+        'character.select.cancel': 'Отменить',
+        'character.select.confirm': 'Подтвердить',
+        'character.select.delete': 'Удалить',
+        'character.select.spawn': 'Появиться',
+        'character.select.create': 'Создать персонажа',
+        'character.select.no.appearance': 'Нет внешности',
+        'character.select.confirm.delete': 'Вы уверены, что хотите удалить',
+        'character.select.first': 'Имя / Первое имя',
+        'character.select.last': 'Фамилия',
+        'character.select.max.characters.reached': 'Достигнуто максимальное количество персонажей',
+    },
+});

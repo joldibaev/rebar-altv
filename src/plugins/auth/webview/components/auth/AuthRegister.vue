@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import Button from '../../../../../webview/src/components/ui/Button.vue';
+import Button from '../../../../../../webview/src/components/ui/Button.vue';
 import { computed, nextTick, onMounted, reactive, ref } from 'vue';
-import Input from '../../../../../webview/src/components/ui/Input.vue';
+import Input from '../../../../../../webview/src/components/ui/Input.vue';
 import { AuthRegisterProps } from '@Plugins/auth/shared/auth.interface.js';
 import { useTranslate } from '@Shared/translate.js';
 import { AuthEvents } from '@Plugins/auth/shared/auth.events.js';
 import { useEvents } from '@Composables/useEvents.js';
-import Alert from '../../../../../webview/src/components/ui/Alert.vue';
+import Alert from '../../../../../../webview/src/components/ui/Alert.vue';
 
 const { t } = useTranslate('ru');
 

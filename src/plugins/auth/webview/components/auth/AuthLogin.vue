@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import Button from '../../../../../webview/src/components/ui/Button.vue';
+import Button from '../../../../../../webview/src/components/ui/Button.vue';
 import { computed, nextTick, onMounted, reactive, ref } from 'vue';
-import Input from '../../../../../webview/src/components/ui/Input.vue';
+import Input from '../../../../../../webview/src/components/ui/Input.vue';
 import { useEvents } from '@Composables/useEvents.js';
 import { AuthEvents } from '@Plugins/auth/shared/auth.events.js';
 import { AuthLoginProps } from '@Plugins/auth/shared/auth.interface.js';
 import { useTranslate } from '@Shared/translate.js';
-import Alert from '../../../../../webview/src/components/ui/Alert.vue';
+import Alert from '../../../../../../webview/src/components/ui/Alert.vue';
 
 const { t } = useTranslate('ru');
 
@@ -25,7 +25,7 @@ const invalidCredentials = ref(false);
 const invalidEmail = computed(() => !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formData.email));
 const invalidPasswordLength = computed(() => formData.password.length < 6);
 
-const onSubmit = (event: Event) => {
+const onSubmit = () => {
     submitted.value = true;
 
     if (!invalidEmail.value && !invalidPasswordLength.value) {

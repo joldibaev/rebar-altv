@@ -3,7 +3,7 @@ import * as native from 'natives';
 
 import { useTranslate } from '@Shared/translate.js';
 import '../translate/index.js';
-const { t } = useTranslate('en');
+const { t } = useTranslate('ru');
 
 import { SYSTEM_EVENTS } from '../shared/events.js';
 
@@ -64,7 +64,7 @@ const NoClip = {
         native.renderScriptCams(false, true, 500, true, false, 0);
 
         const position = native.getEntityCoords(alt.Player.local.scriptID, true);
-        let [unk, ground] = native.getGroundZFor3dCoord(position.x, position.y, position.z, 0.0, false, false);
+        let [, ground] = native.getGroundZFor3dCoord(position.x, position.y, position.z, 0.0, false, false);
         native.setEntityCoordsNoOffset(alt.Player.local.scriptID, position.x, position.y, ground, false, false, false);
         native.freezeEntityPosition(alt.Player.local.scriptID, false);
         native.setEntityInvincible(alt.Player.local.scriptID, false);

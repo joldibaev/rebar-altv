@@ -3,10 +3,10 @@ import '../translate/index'; // Import translations
 import Title from '../../../../webview/src/components/ui/Title.vue';
 import Button from '../../../../webview/src/components/ui/Button.vue';
 import { ref } from 'vue';
-import AuthLogin from '@Plugins/auth/webview/components/AuthLogin.vue';
-import AuthRegister from '@Plugins/auth/webview/components/AuthRegister.vue';
+import AuthLogin from '@Plugins/auth/webview/components/auth/AuthLogin.vue';
+import AuthRegister from '@Plugins/auth/webview/components/auth/AuthRegister.vue';
 import { useTranslate } from '@Shared/translate.js';
-import RememberAuth from '@Plugins/auth/webview/components/RememberAuth.vue';
+import RememberAuth from '@Plugins/auth/webview/components/auth/RememberAuth.vue';
 
 const { t } = useTranslate('ru');
 

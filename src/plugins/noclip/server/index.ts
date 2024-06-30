@@ -9,7 +9,7 @@ const api = Rebar.useApi();
 const messenger = Rebar.messenger.useMessenger();
 const ServerWeather = Rebar.useServerWeather();
 
-const { t } = useTranslate('en');
+const { t } = useTranslate('ru');
 
 const pos = new alt.Vector3(-614.86, 40.6783, 97.60007);
 

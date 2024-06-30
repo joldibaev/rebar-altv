@@ -16,3 +16,11 @@ export const AuthConfig = {
         rot: { x: 0, y: 0, z: -1.519217038154602 },
     },
 };
+
+export const CharacterSelectConfig = {
+    minLength: 2,
+    maxLength: 8,
+    askForLastName: true,
+    noDuplicateNames: true,
+    maxCharacters: 3,
+};

@@ -1,10 +1,7 @@
 import * as alt from 'alt-client';
 import * as native from 'natives';
 import { AuthEvents } from '../../shared/auth.events.js';
-import { useRebarClient } from '@Client/index.js';
 import { AuthConfig } from '../../shared/auth.config.js';
-
-const Rebar = useRebarClient();
 
 let camera: number;
 let nextTickInterval: number | undefined;
