@@ -7,8 +7,11 @@ import { SYSTEM_EVENTS } from '../shared/events.js';
 const Rebar = useRebar();
 const api = Rebar.useApi();
 const messenger = Rebar.messenger.useMessenger();
+const ServerWeather = Rebar.useServerWeather();
 
 const { t } = useTranslate('en');
+
+const pos = new alt.Vector3(-614.86, 40.6783, 97.60007);
 
 function noclip(player: alt.Player) {
     const isNoClipping: boolean | null = player.getSyncedMeta('NoClipping') as boolean;
@@ -16,11 +19,15 @@ function noclip(player: alt.Player) {
     // if (typeof data === 'undefined') {
     //     return;
     // }
+    alt.log(isNoClipping);
 
     if (!isNoClipping) {
-        player.setSyncedMeta('NoClipping', true);
-        messenger.message.send(player, { type: 'system', content: t('noclip.on') });
-        player.visible = false;
+        handleCamUpdate(player, pos);
+        alt.setTimeout(() => {
+            player.setSyncedMeta('NoClipping', true);
+            messenger.message.send(player, { type: 'system', content: t('noclip.on') });
+            player.visible = false;
+        }, 500);
         return;
     }
 
@@ -29,7 +36,8 @@ function noclip(player: alt.Player) {
     //     return;
     // }
 
-    player.spawn(player.pos.x, player.pos.y, player.pos.z, 0);
+    player.pos = new alt.Vector3(pos.x, pos.y, pos.z);
+    player.spawn(pos.x, pos.y, pos.z);
     player.setSyncedMeta('NoClipping', false);
     messenger.message.send(player, { type: 'system', content: t('noclip.off') });
     player.visible = true;
@@ -59,6 +67,14 @@ alt.onClient(SYSTEM_EVENTS.NOCLIP_UPDATE, handleCamUpdate);
 const configApi = await api.getAsync('config-api');
 if (configApi.getConfig().noClip) {
     alt.on('playerConnect', (player: alt.Player) => {
+        // todo weather api
+        // Used as a way to store the current weather on server-side for other plugins
+        ServerWeather.set('CLEAR');
+        Rebar.player.useWorld(player).setWeather(ServerWeather.get(), 0);
+
+        // todo time api
+        Rebar.player.useWorld(player).setTime(22, 0, 0);
+
         noclip(player);
     });
 }
