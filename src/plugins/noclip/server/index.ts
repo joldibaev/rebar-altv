@@ -19,7 +19,6 @@ function noclip(player: alt.Player) {
     // if (typeof data === 'undefined') {
     //     return;
     // }
-    alt.log(isNoClipping);
 
     if (!isNoClipping) {
         handleCamUpdate(player, pos);

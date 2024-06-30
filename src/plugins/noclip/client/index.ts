@@ -5,7 +5,6 @@ import { useTranslate } from '@Shared/translate.js';
 import '../translate/index.js';
 const { t } = useTranslate('en');
 
-
 import { SYSTEM_EVENTS } from '../shared/events.js';
 
 const timeBetweenPlayerUpdates = 250;
@@ -56,7 +55,6 @@ const NoClip = {
         native.renderScriptCams(true, true, 500, true, false, 0);
         native.freezeEntityPosition(alt.Player.local.scriptID, true);
         native.setEntityInvincible(alt.Player.local.scriptID, true);
-
     },
 
     disable() {
@@ -70,7 +68,6 @@ const NoClip = {
         native.setEntityCoordsNoOffset(alt.Player.local.scriptID, position.x, position.y, ground, false, false, false);
         native.freezeEntityPosition(alt.Player.local.scriptID, false);
         native.setEntityInvincible(alt.Player.local.scriptID, false);
-
     },
 
     tick() {
@@ -101,8 +98,6 @@ const NoClip = {
         if (native.isDisabledControlPressed(0, 15)) {
             sensMultiplier += 2;
 
-            alt.log(sensMultiplier);
-
             if (sensMultiplier >= 100) {
                 sensMultiplier = 100;
             }
@@ -111,8 +106,6 @@ const NoClip = {
         // Scroll Down - Decrease Multiplier
         if (native.isDisabledControlPressed(0, 14)) {
             sensMultiplier -= 2;
-
-            alt.log(sensMultiplier);
 
             if (sensMultiplier <= 2) {
                 sensMultiplier = 2;
@@ -202,21 +195,9 @@ const NoClip = {
             alt.emitServer(SYSTEM_EVENTS.NOCLIP_UPDATE, fwd);
         }
 
-        drawText2D(
-            t('noclip.info'),
-            { x: 0.5, y: 0.89 },
-            0.4,
-            new alt.RGBA(255, 255, 255, 200),
-            0,
-        );
+        drawText2D(t('noclip.info'), { x: 0.5, y: 0.89 }, 0.4, new alt.RGBA(255, 255, 255, 200), 0);
 
-        drawText2D(
-            t('noclip.speed') + sens.toFixed(2) ,
-            { x: 0.5, y: 0.92 },
-            0.4,
-            new alt.RGBA(255, 255, 255, 200),
-            0,
-        );
+        drawText2D(t('noclip.speed') + sens.toFixed(2), { x: 0.5, y: 0.92 }, 0.4, new alt.RGBA(255, 255, 255, 200), 0);
 
         if (!native.isPauseMenuActive()) {
             NoClip.processCameraRotation();

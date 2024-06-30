@@ -1,5 +1,5 @@
 export const ServerConfig = {
-    noClip: true,
+    noClip: false,
     hideMinimapInPage: true,
     disablePistolWhip: true,
     disableVehicleEngineAutoStart: true,

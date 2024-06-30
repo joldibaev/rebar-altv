@@ -1,2 +1,1 @@
-import './src/auth.js';
-
+import './auth/index.js';

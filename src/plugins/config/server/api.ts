@@ -1,5 +1,3 @@
-import * as alt from 'alt-server';
-
 import { useRebar } from '@Server/index.js';
 
 import { ServerConfig } from './config.js';
@@ -9,7 +7,6 @@ const API_NAME = 'config-api';
 
 export function useApi() {
     function getConfig() {
-        alt.log('lorem');
         return ServerConfig;
     }
 
