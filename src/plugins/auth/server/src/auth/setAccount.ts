@@ -5,6 +5,7 @@ import { Account } from '@Shared/types/index.js';
 import { sessionKey } from './index.js';
 import { AuthEvents } from '../../../shared/auth.events.js';
 import { invokeOnLogin } from './api.js';
+import { AuthConfig } from '../../../shared/auth.config.js';
 
 const Rebar = useRebar();
 
@@ -20,8 +21,14 @@ export async function setAccount(player: alt.Player, account: Account) {
 
     invokeOnLogin(player);
 
-    player.spawn(-18.07856, -583.6725, 79.46569);
+    player.spawn(AuthConfig.spawnPoint.pos);
+    player.rot = new alt.Vector3(AuthConfig.spawnPoint.rot);
     player.model = 'mp_m_freemode_01';
     player.frozen = false;
     player.visible = true;
+
+    // const rebarPlayer = Rebar.usePlayer(player);
+    // alt.setTimeout(async () => {
+    //     await rebarPlayer.animation.playInfinite('switch@michael@sitting', 'idle', 14);
+    // }, 500);
 }
