@@ -50,7 +50,7 @@ onMounted(handleMount);
 
 <style scoped>
 .devbg {
-    background: url('./devbg.jpg');
+    background: url('/devbg.jpg');
     background-size: 100% 100%;
     width: 100vw;
     height: 100vh;
