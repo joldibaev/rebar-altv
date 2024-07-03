@@ -1,18 +1,44 @@
 import * as alt from 'alt-client';
-import { useCamera } from '@Client/player/camera.js';
-import { CharacterSelectEvents } from '../../shared/auth.events.js';
 
-const camera = useCamera();
+import { useClonedPed } from '@Client/ped/clone.js';
+import { useWebview } from '@Client/webview/index.js';
+import { Appearance } from '@Shared/types/appearance.js';
 
-function handleToggleControls(value: boolean) {
-    alt.toggleGameControls(value);
-    alt.setConfigFlag('DISABLE_IDLE_CAMERA', !value);
+import { CharacterCreatorEvents } from '../../shared/auth.events.js';
+import { DefaultAppearance } from '../../shared/defaultAppearance.js';
+import { getCreationData } from './helpers.js';
+import { AuthConfig } from '../../shared/auth.config.js';
+import { DefaultClothes } from '../../shared/defaultClothing.js';
 
+const pedClone = useClonedPed();
+const webview = useWebview();
+
+function updateAppearance(appearance: Appearance) {
+    void pedClone.ped.update(appearance, DefaultClothes[appearance.sex], {
+        pos: new alt.Vector3(AuthConfig.spawnPoint.pos),
+        heading: 0,
+    });
+}
+
+async function createPed(value: boolean) {
     if (value) {
-        camera.destroy();
+        alt.off('disconnect', pedClone.ped.destroy);
+        pedClone.ped.destroy();
+        pedClone.camera.destroy();
     } else {
-        camera.create();
+        alt.on('disconnect', pedClone.ped.destroy);
+        void pedClone.ped.update(DefaultAppearance, DefaultClothes[DefaultAppearance.sex], {
+            pos: new alt.Vector3(AuthConfig.spawnPoint.pos),
+            heading: 0,
+        });
+        await pedClone.camera.create({ bone: 'IK_Root', fov: 60, zOffset: 0.4 });
     }
 }
 
-alt.onServer(CharacterSelectEvents.toClient.toggleControls, handleToggleControls);
+function updateNativeData() {
+    webview.emit(CharacterCreatorEvents.toClient.getNativeData, getCreationData());
+}
+
+alt.onServer(CharacterCreatorEvents.toClient.createPed, createPed);
+webview.on(CharacterCreatorEvents.toClient.updateAppearance, updateAppearance);
+webview.on(CharacterCreatorEvents.toClient.getNativeData, updateNativeData);

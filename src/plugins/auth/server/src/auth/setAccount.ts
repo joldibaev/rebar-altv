@@ -12,9 +12,6 @@ export async function setAccount(player: alt.Player, account: Account) {
     const document = Rebar.document.account.useAccountBinder(player).bind(account);
     await document.set('lastLogin', Date.now());
 
-    Rebar.player.useWebview(player).hide('Auth');
-
-    player.dimension = 0;
     player.emit(AuthEvents.toClient.cameraDestroy);
     player.deleteMeta(sessionKey);
 }

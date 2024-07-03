@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors');
+
 /** @type {import('tailwindcss').Config} */
 export default {
     content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}', '../src/plugins/**/*.{vue,js,ts,jsx,tsx}'],
@@ -7,6 +9,7 @@ export default {
             sans: 'Roboto',
         },
         colors: {
+            neutral: colors.neutral,
             transparent: 'transparent',
             primary: '#45f882',
             secondary: '#ffbe18',

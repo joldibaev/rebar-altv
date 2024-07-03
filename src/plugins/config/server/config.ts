@@ -4,4 +4,6 @@ export const ServerConfig = {
     disablePistolWhip: true,
     disableVehicleEngineAutoStart: true,
     disableVehicleEngineAutoStop: true,
+    hideStreetName: true,
+    hideAreaName: true,
 };

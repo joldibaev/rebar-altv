@@ -14,8 +14,8 @@ const state = ref<'login' | 'remember-me' | 'register'>('login');
 </script>
 
 <template>
-    <section class="wrapper">
-        <div class="auth">
+    <section class="start-fade-bg px-72 flex items-center">
+        <div class="w-96">
             <Title class="mb-5 text-center text-8xl" type="outlined">Verona</Title>
 
             <RememberAuth
@@ -38,20 +38,3 @@ const state = ref<'login' | 'remember-me' | 'register'>('login');
         </div>
     </section>
 </template>
-
-<style scoped>
-.wrapper {
-    background-image: linear-gradient(
-        90deg,
-        rgba(var(--color-dark-3-rgb), 1),
-        rgba(var(--color-dark-3-rgb), 0.4),
-        rgba(var(--color-dark-3-rgb), 0.1)
-    );
-
-    @apply z-0 flex h-screen w-screen items-center ps-96 text-white;
-}
-
-.auth {
-    @apply relative z-10 w-96;
-}
-</style>

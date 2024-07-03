@@ -32,7 +32,7 @@ defineExpose({
 </script>
 
 <template>
-    <section>
+    <div>
         <label class="flex items-center">
             <input
                 v-model="model"
@@ -44,8 +44,8 @@ defineExpose({
             <span class="ms-2 w-full" v-if="type === 'checkbox'"><slot></slot></span>
         </label>
 
-        <div class="text-danger" v-if="invalid.value && invalid.message">{{ invalid.message }}</div>
-    </section>
+        <div class="text-danger mt-2" v-if="invalid.value && invalid.message">{{ invalid.message }}</div>
+    </div>
 </template>
 
 <style scoped lang="scss">

@@ -19,3 +19,9 @@ serverConfig.set('disableVehicleEngineAutoStart', ServerConfig.disableVehicleEng
 
 // Disable stopping vehicle engine when leaving a vehicle
 serverConfig.set('disableVehicleEngineAutoStop', ServerConfig.disableVehicleEngineAutoStop);
+
+// Hide street names
+serverConfig.set('hideStreetName', ServerConfig.hideStreetName);
+
+// Hide area name
+serverConfig.set('hideAreaName', ServerConfig.hideAreaName);

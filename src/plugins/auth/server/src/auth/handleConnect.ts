@@ -30,7 +30,6 @@ export async function handleConnect(player: alt.Player) {
     player.emit(AuthEvents.toClient.cameraCreate);
 
     const webView = Rebar.player.useWebview(player);
-
     webView.show('Auth', 'page');
 
     const rememberedAccount = await getRememberAccount(player);

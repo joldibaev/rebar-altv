@@ -20,15 +20,17 @@ export const AuthEvents = {
 };
 
 export const CharacterSelectEvents = {
+    toServer: {},
+    toClient: {},
+};
+
+export const CharacterCreatorEvents = {
     toServer: {
-        submitUsername: 'character:select:submit:username',
-        trashCharacter: 'character:select:trash',
-        spawnCharacter: 'character:select:spawn',
-        syncCharacter: 'character:select:sync',
+        create: 'character:creator:create',
     },
     toClient: {
-        handleError: 'character:select:username:handle:error',
-        populateCharacters: 'character:select:populate',
-        toggleControls: 'character:select:toggle:controls',
+        createPed: 'character:creator:createPed',
+        updateAppearance: 'character:creator:update:appearance',
+        getNativeData: 'character:creator:get:native:data',
     },
 };

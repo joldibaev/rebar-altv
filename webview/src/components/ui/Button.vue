@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 interface Props {
-    styleType: 'primary' | 'secondary' | 'standard';
+    styleType: 'primary' | 'secondary' | 'standard' | 'outlined';
     type: HTMLButtonElement['type'];
     disabled: boolean;
     active: boolean;
@@ -35,8 +35,12 @@ button {
         transform: scale(0.99);
     }
 
+    &.outlined {
+        @apply border-dark-2 border-2;
+    }
+
     &.primary {
-        @apply bg-primary text-dark-2 outline-2;
+        @apply border-primary bg-primary text-dark-2 outline-2;
         box-shadow: 0 0 25px rgba(var(--color-primary-rgb), 0.25);
 
         &:disabled {
@@ -45,7 +49,7 @@ button {
     }
 
     &.secondary {
-        @apply bg-secondary text-dark-2 outline-2;
+        @apply border-secondary bg-secondary text-dark-2 outline-2;
         box-shadow: 0 0 25px rgba(var(--color-secondary-rgb), 0.25);
 
         &:disabled {
@@ -54,7 +58,7 @@ button {
     }
 
     &.active {
-        @apply bg-primary text-dark-2 outline-2;
+        @apply border-primary bg-primary text-dark-2 outline-2;
         box-shadow: 0 0 25px rgba(var(--color-primary-rgb), 0.25);
 
         &:disabled {
