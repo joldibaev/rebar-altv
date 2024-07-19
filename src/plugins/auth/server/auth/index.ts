@@ -1,7 +1,7 @@
 import * as alt from 'alt-server';
 
 import { useRebar } from '@Server/index.js';
-import { AuthEvents } from '../../../shared/auth.events.js';
+import { AuthEvents } from '../../shared/auth.events.js';
 import { handleLogin } from './handleLogin.js';
 import { handleRegister } from './handleRegister.js';
 import { handleConnect } from './handleConnect.js';

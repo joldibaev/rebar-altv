@@ -2,7 +2,7 @@ import * as alt from 'alt-server';
 import { useRebar } from '@Server/index.js';
 import { Account } from '@Shared/types/account.js';
 import { useTranslate } from '@Shared/translate.js';
-import { AuthEvents } from '../../../shared/auth.events.js';
+import { AuthEvents } from '../../shared/auth.events.js';
 import { setAccount } from './setAccount.js';
 import { AuthRegisterProps } from '@Plugins/auth/shared/auth.interface.js';
 

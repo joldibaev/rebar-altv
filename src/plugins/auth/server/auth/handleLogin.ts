@@ -2,9 +2,9 @@ import * as alt from 'alt-server';
 import { useRebar } from '@Server/index.js';
 import { useTranslate } from '@Shared/translate.js';
 
-import { AuthLoginProps } from '../../../shared/auth.interface.js';
+import { AuthLoginProps } from '../../shared/auth.interface.js';
 import { Account } from '@Shared/types/index.js';
-import { AuthEvents } from '../../../shared/auth.events.js';
+import { AuthEvents } from '../../shared/auth.events.js';
 import { updateRememberMe } from './remember-me.js';
 import { loggedInPlayers, sessionKey } from './index.js';
 import { setAccount } from './setAccount.js';

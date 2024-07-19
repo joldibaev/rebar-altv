@@ -39,6 +39,6 @@ function updateNativeData() {
     webview.emit(CharacterCreatorEvents.toClient.getNativeData, getCreationData());
 }
 
-alt.onServer(CharacterCreatorEvents.toClient.createPed, createPed);
+alt.onServer(CharacterCreatorEvents.toClient.ped, createPed);
 webview.on(CharacterCreatorEvents.toClient.updateAppearance, updateAppearance);
 webview.on(CharacterCreatorEvents.toClient.getNativeData, updateNativeData);

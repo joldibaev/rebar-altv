@@ -29,7 +29,7 @@ export const CharacterCreatorEvents = {
         create: 'character:creator:create',
     },
     toClient: {
-        createPed: 'character:creator:createPed',
+        ped: 'character:creator:createPed',
         updateAppearance: 'character:creator:update:appearance',
         getNativeData: 'character:creator:get:native:data',
     },

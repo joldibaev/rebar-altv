@@ -6,6 +6,7 @@ import { CharacterCreatorEvents } from '@Plugins/auth/shared/auth.events.js';
 import { useEvents } from '@Composables/useEvents.js';
 import Button from '../../../../../../webview/src/components/ui/Button.vue';
 import Input from '../../../../../../webview/src/components/ui/Input.vue';
+import { CharacterName } from '@Plugins/auth/shared/auth.type.js';
 
 const { t } = useTranslate('ru');
 
@@ -14,23 +15,24 @@ const { appearance } = useAppearance();
 const events = useEvents();
 const processing = ref(false);
 
-const formData = reactive({
-    firstName: '',
-    lastName: '',
+const characterName = reactive<CharacterName>({
+    first: '',
+    last: '',
 });
 const submitted = ref(false);
 
-const invalidFirstName = computed(() => formData.firstName.length < 2);
-const invalidLastName = computed(() => formData.lastName.length < 2);
+const invalidFirstName = computed(() => characterName.first.length < 2);
+const invalidLastName = computed(() => characterName.last.length < 2);
 
 function onSubmit() {
     submitted.value = true;
 
-    if (invalidFirstName || invalidLastName || processing.value) {
+    if (invalidFirstName.value || invalidLastName.value || processing.value) {
         return;
     }
 
-    events.emitServer(CharacterCreatorEvents.toServer.create, { player: formData, data: toRaw(appearance.value) });
+    events.emitServer(CharacterCreatorEvents.toServer.create, { characterName, appearance: toRaw(appearance.value) });
+
     processing.value = true;
     emits('onProcessing');
 }
@@ -41,7 +43,7 @@ function onSubmit() {
         <div v-if="!processing">
             <Input
                 class="mb-5"
-                v-model="formData.firstName"
+                v-model="characterName.first"
                 :invalid="{ value: !!(submitted && invalidFirstName), message: t('form.required') }"
                 type="text"
                 :placeholder="t('character.select.first')"
@@ -49,7 +51,7 @@ function onSubmit() {
 
             <Input
                 class="mb-5"
-                v-model="formData.lastName"
+                v-model="characterName.last"
                 :invalid="{ value: !!(submitted && invalidLastName), message: t('form.required') }"
                 type="text"
                 :placeholder="t('character.select.last')"

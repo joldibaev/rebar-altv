@@ -4,7 +4,7 @@ import { useRebar } from '@Server/index.js';
 import { Account } from '@Shared/types/index.js';
 
 import { sessionKey } from './index.js';
-import { AuthEvents } from '../../../shared/auth.events.js';
+import { AuthEvents } from '../../shared/auth.events.js';
 
 const Rebar = useRebar();
 

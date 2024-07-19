@@ -1,7 +1,7 @@
 import * as alt from 'alt-server';
 
-import { AuthConfig } from '../../../shared/auth.config.js';
-import { AuthEvents } from '../../../shared/auth.events.js';
+import { AuthConfig } from '../../shared/auth.config.js';
+import { AuthEvents } from '../../shared/auth.events.js';
 import { getRememberAccount } from './remember-me.js';
 import { sessionKey } from './index.js';
 import { useRebar } from '@Server/index.js';
