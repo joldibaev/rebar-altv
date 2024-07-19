@@ -1,4 +1,102 @@
+---
+order: 95
+---
+
 # Changelog
+
+## Version 49
+
+### Code Changes
+
+-   Updated Virtual Document to use a generic at the base level for the whole document
+    -   This changes how Virtual Documents are constructed, and may break some things if you use virtual documents.
+-   Added `useMessenger` to systems pathway
+-   Fix vehicle handling so it always returns streamSyncedMeta data
+-   Added `handling` to `useVehicle`
+-   Added `vehicle` to `useVehicle`, makes it so you can do `rPlayer.player.pos`
+-   Added `player` to `usePlayer`, makes it so you can do `rVehicle.vehicle.pos`
+-   Changed Rebar endpoints to use Hono, and deprecated old server utility @floydya
+
+### Docs Changes
+
+-   Restructured the documentation
+-   Documented `useCharacterEvents` and `useAccountEvents`
+-   Combined getters documentation
+-   Combined controllers documentation
+-   Combined vehicle documentation
+
+---
+
+## Version 48
+
+### Code Changes
+
+-   Updated RPC endpoints
+-   Began structuring new RPC endpoint functions
+-   Server-side instructional buttons integrated by floydya
+
+---
+
+## Version 47
+
+### Code Changes
+
+-   Added an RPC endpoint under `http://127.0.0.1:8787` with endpoints `/restart`, `/`, and `/health`.
+-   Fixed issue where reconnecting too early would cause client to be frozen on reconnecting
+-   Restarting server now kicks all players while in dev mode only
+
+---
+
+## Version 46
+
+### Code Changes
+
+-   Added `useInteractionLocal` to create local interactions for individual players
+
+### Docs Changes
+
+-   Updated `useInteraction` to include `useInteractionLocal`
+
+---
+
+## Version 45
+
+### Code Changes
+
+-   Added `useVehicleHandling` function that lets you adjust handling per vehicle
+-   Added object attachments for players, see `useAttachment` under the player endpoint
+
+### Docs Changes
+
+-   Documented `useVehicleHandling`
+-   Documented `useAttachment`
+
+---
+
+## Version 44
+
+### Code Changes
+
+-   Fixed issue with setting global document data
+-   Additionally, improved type casting support for global documents
+
+### Docs Changes
+
+-   Updated object document api to clarify generics usage
+
+---
+
+## Version 43
+
+### Code Changes
+
+-   Fixed local object initialization
+
+### Docs Changes
+
+-   N/A
+
+---
 
 ## Version 42
 

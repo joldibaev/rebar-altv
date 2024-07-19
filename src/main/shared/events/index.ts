@@ -5,6 +5,13 @@ export const Events = {
             trigger: 'interaction:trigger',
             clear: 'interaction:on:clear',
         },
+        interactionLocal: {
+            create: 'interaction:local:create',
+            destroy: 'interaction:local:destroy',
+            onEnter: 'interaction:local:onEnter',
+            onLeave: 'interaction:local:onLeave',
+            on: 'interaction:local:on',
+        },
         blip: {
             create: 'blip:create',
             destroy: 'blip:destroy',
@@ -88,6 +95,11 @@ export const Events = {
             ped: {
                 show: 'player:show:ped:on:screen',
             },
+            instructionalButtons: {
+                create: 'player:screen:instructionalButtons:create',
+                destroy: 'player:screen:instructionalButtons:destroy',
+                get: 'player:screen:instructionalButtons:get',
+            },
         },
         webview: {
             set: {
@@ -98,6 +110,10 @@ export const Events = {
         },
     },
     systems: {
+        world: {
+            pointDetails: 'systems:world:pointDetails',
+            travelDistance: 'systems:world:routeLength',
+        },
         keybinds: {
             update: 'systems:keybinds:update',
             invoke: 'systems:keybinds:invoke',

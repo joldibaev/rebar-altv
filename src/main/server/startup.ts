@@ -4,7 +4,7 @@ import '../translate/index.js';
 import { useTranslate } from '@Shared/translate.js';
 import { useConfig } from './config/index.js';
 import { useDatabase } from './database/index.js';
-import './systems/vscodeTransmitter.js';
+import './rpc/index.js';
 
 const config = useConfig();
 const database = useDatabase();
@@ -28,4 +28,4 @@ async function handleStart() {
     alt.log(t('system.server.started'));
 }
 
-alt.on('serverStarted', handleStart);
+handleStart();
